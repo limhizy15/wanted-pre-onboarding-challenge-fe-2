@@ -1,51 +1,64 @@
 /**
- * Represents a book.
+ * Todo 아이템 모델
  * @constructor
- * @param {string} title - The title of the book.
- * @param {string} author - The author of the book.
+ * @param {number} id - 고유 숫자
+ * @param {string} content - 할 일을 자세히 정의합니다.
+ * @param {boolean} isCompleted - 완료 시 true
+ * @param {string[]} [categories]
+ * @param {string[]} [tags]
  */
-function Book(title, author) {}
+function Todo(id, content, isCompleted, categories, tags) {}
 
 /**
- * Both of these will link to the bar function.
- * @see {@link bar}
- * @see bar
+ * 할 일을 추가합니다.
+ *
+ * @param {string} content - (필수값)
  */
-function foo() {}
-
-// Use the inline {@link} tag to include a link within a free-form description.
-/**
- * @see {@link foo} for further information.
- * @see {@link http://github.com|GitHub}
- */
-function bar() {}
+function AddTodo(content) {}
 
 /**
- * Generic dairy product.
- * @constructor
+ * 모든 할 일을 조회합니다.
+ * id가 없다면 전체를, id가 있다면 특정 할 일을
+ *
+ * @param {number} [id]
  */
-function DairyProduct() {}
+function getTodoList(id) {}
 
 /**
- * Check whether the dairy product is solid at room temperature.
- * @abstract
- * @return {boolean}
+ * 할 일을 수정합니다.
+ *
+ * @param {number} id
+ * @param {Object} updatedTodo
+ * @param {string} [updatedTodo.content]
+ * @param {boolean} [updatedTodo.isCompleted]
+ * @param {string[]} [updatedTodo.categories]
+ * @param {string[]} [updatedTodo.tags]
  */
-DairyProduct.prototype.isSolid = function () {
-  throw new Error('must be implemented by subclass!');
-};
+function updateToto(id, updatedTodo) {}
 
 /**
- * Cool, refreshing milk.
- * @constructor
- * @augments DairyProduct
+ * 할 일을 삭제합니다.
+ *
+ * @param {number} id
  */
-function Milk() {}
+function deleteTodo(id) {}
 
 /**
- * Check whether milk is solid at room temperature.
- * @return {boolean} Always returns false.
+ * 모든 할 일을 삭제합니다.
  */
-Milk.prototype.isSolid = function () {
-  return false;
-};
+function deleteAllTodos() {}
+
+/**
+ * 할 일의 특정 태그를 삭제합니다.
+ *
+ * @param {number} id
+ * @param {string} tagName
+ */
+function deleteTag(id, tagName) {}
+
+/**
+ * 할 일의 모든 태그를 삭제합니다.
+ *
+ * @param {number} id
+ */
+function deleteAllTags(id) {}
